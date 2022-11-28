@@ -15,3 +15,5 @@ temp.txt
 
 #Exclude logs
 ./logs/*
+./logs
+logs
