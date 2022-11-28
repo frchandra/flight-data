@@ -12,6 +12,8 @@ temp.txt
 
 #Exlude data file
 /data/*
+./data
+data
 
 #Exclude logs
 ./logs/*
