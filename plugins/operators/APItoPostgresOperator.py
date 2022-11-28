@@ -82,15 +82,8 @@ class APItoPostgresOperator(BaseOperator):
         end_time = start_time + timedelta(hours=1)
         start_timestamp = str(int(datetime.timestamp(start_time)))
         end_timestamp = str(int(datetime.timestamp(end_time)))
-        # current_GMT = time.gmtime()
-        # start_timestamp = calendar.timegm(current_GMT)
-        # end_timestamp = start_timestamp+36000
-        # start_timestamp = str(start_timestamp)
-        # end_timestamp = str(end_timestamp)
-
 
         # Build complete api path
-        # 'https://{}:{}@opensky-network.org/api/flights/all?begin={}&end={}'
         complete_api_path = self.api_path.format(api_connection.login, api_connection.password, start_timestamp, end_timestamp)
         self.log.info('api_path: {}'.format(complete_api_path))
 
