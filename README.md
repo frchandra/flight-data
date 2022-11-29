@@ -5,6 +5,12 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&logo=appveyor)](https://lbesson.mit-license.org/)
 
 ## Anggota Kelompok
+1. Nismara Chandra Herdiputra 20/456374/TK/50504
+2. Aditya Ramadhan 20/460535/TK/51124
+3. Fiorenza Celestyn 20/460545/TK/51134
+4. Agnes Suarna  20/463589/TK/51581
+5. Ananta Pridya Yudha 20/463592/tk/51584
+
 
 ## Cara Menjalankan Aplikasi
 0. Karena aplikasi ini sangat bergantung pada kinerja docker yang stabil, maka **disarankan untuk menjalankan kode ini menggunakan OS dan environment Linux**. Alterfatif bagi pengguna OS selain linux adalah menjalankan docker desktop atau virtualisasi linux. Penjelasan cara menginstall docker tidak dijelaskan disini
@@ -31,8 +37,13 @@ docker compose up -d
 
 7. Selanjutnya anda perlu mengkoneksikan aplikasi ini dengan layanan yang dibutuhkan (database dan RESTapi). Untuk ini anda perlu mengakses meenu admin->connections
 
-8. **Menghubungkan dengan database**. Untuk menghubungkan dengan database anda perlu melihat nama container database yang berjalan dengan mengetikan perintah ini di terminal ``` docker ps```. Sebagai contoh, nama container database milik kami adalah **flight-data-postres-1**. Nama container ini akan digunakan sebagai alamat database host. ![docker-ps](./pictures/docker-ps.png)
- Tekan tombol 'plus' lalu lengkapi kolom konfigurasi seperti ini. Jika anda tidak memodifikasi konfigurasi apapun dan mengikuti langkah default, maka seharunnya anda hanya perlu mengikuti tangkap layar kami berikut ini (schema, user dan password default adalah 'airflow') ![db-connection-configuration](./pictures/db-conf.png)Anda dapat mencoba mengklik tombol test, jika konfiguasi benar maka akan muncul notifikasi positif
+8. **Menghubungkan airflow dengan database**. Untuk menghubungkan dengan database anda perlu melihat nama container database yang berjalan dengan mengetikan perintah ini di terminal ``` docker ps```. Sebagai contoh, nama container database milik kami adalah **flight-data-postres-1**. Nama container ini akan digunakan sebagai alamat database host. ![docker-ps](./pictures/docker-ps.png)
+ Tekan tombol 'plus' lalu lengkapi kolom konfigurasi seperti ini. Jika anda tidak memodifikasi konfigurasi apapun dan mengikuti langkah default, maka seharunnya anda hanya perlu mengikuti tangkap layar kami berikut ini (schema, user dan password default adalah 'airflow') ![db-connection-configuration](./pictures/db-conf.png)Anda dapat mencoba mengklik tombol test, jika konfiguasi benar maka akan muncul notifikasi positif. Setelah berhasil klik tombol 'save'
+
+ 9. **Menghubungkan airflow dengan RestAPI service**
+ Kembali ke halaman add connection, tekan kembali tombol 'plus' lalu isi kolom konfigurasi sesuai dengan tangkap layar berikut ini. ![api-conf-1](./pictures/api-conf-1.png)![api-conf-2](./pictures/api-conf-2.png)
+
+ 10. Konfigurasi selesai. Selanjutnya anda dapat kembali ke halaman 'home' dan sudah bisa menjalankan 'dag_etl_aircraft' atau 'dag_flight_data'
 
 
 
