@@ -13,10 +13,10 @@
 
 
 ## Cara Menjalankan Aplikasi
-0. Karena aplikasi ini sangat bergantung pada kinerja docker yang stabil, maka **disarankan untuk menjalankan kode ini menggunakan OS dan environment Linux**. Alternatif bagi pengguna OS selain linux adalah menjalankan docker desktop atau virtualisasi linux. Penjelasan cara menginstall docker tidak dijelaskan disini
+0. Karena aplikasi ini sangat bergantung pada kinerja docker yang stabil, maka **disarankan untuk menjalankan kode ini menggunakan OS dan environment Linux**. Alterfatif bagi pengguna OS selain linux adalah menjalankan docker desktop atau virtualisasi linux. Penjelasan cara menginstall docker tidak dijelaskan disini
 
 1. Clone/fork repositoty ini lalu pindahkan working directory anda ke repository ini
-2. Karena repository ini menggunakan image apache airflow yang telah dimodifikasi (anda dapat melihat modifikasi yang diterapkan di dalam [Dockerfile](./Dockerfile)), maka anda perlu membuat imagenya terlebih dahulu menggunakan docker command ini. (**mungkin memakan durasi yang lama**)
+2. Karena repository ini menggunakan image apache airflow yang telah dimodifikasi (anda dapat melihat modifikasi yang diterpakan di dalam [Dockerfile](./Dockerfile)), maka anda berlu membuat imagenya terlebih dahulu menggunakan docker command ini. (**mungkin memakan durasi yang lama**)
 3. Secara default kami mengatur port aplikasi ini berjalan di 80 untuk webserver dan 5432 untuk database. Namun anda dapat mengkustomisasinya dengan cara mengedit entry 'ports' di file [docker-compose](./docker-compose.yaml)-nya. Anda hanya dapat mengedit port milik 'host' (yang sisi kiri)
 ```
 docker compose build
@@ -43,7 +43,11 @@ docker compose up -d
  9. **Menghubungkan airflow dengan RestAPI service**
  Kembali ke halaman add connection, tekan kembali tombol 'plus' lalu isi kolom konfigurasi sesuai dengan tangkap layar berikut ini. ![api-conf-1](./pictures/api-conf-1.png)![api-conf-2](./pictures/api-conf-2.png)
 
- 10. Konfigurasi selesai. Selanjutnya anda dapat kembali ke halaman 'home' dan sudah bisa menjalankan 'dag_etl_aircraft' atau 'dag_flight_data'
+ 10. Buatlah tabel-tabel yang diperlukan oleh aplikasi di database postgres. Anda dapat menggunakan script yang terdapat di [sini](./create_table_statements.sql) untuk di-inject-kan kedalam container database. Untuk melakukan ini, anda perlu mengakses container database menggunakan database client kesayangan anda. Detail pembuatan table tidak dijelaskan disini
+
+ 11. Konfigurasi selesai. Selanjutnya anda dapat kembali ke halaman 'home' dan sudah bisa menjalankan 'dag_etl_aircraft' atau 'dag_flight_data'
+
+ 12. Jika anda ingin melihat penjelasan yang lebih detail anda dapat melihat video penjelasan yang kami sertakan
 
 
 
